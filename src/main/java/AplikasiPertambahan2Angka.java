@@ -1,4 +1,5 @@
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /*
@@ -48,6 +49,12 @@ public class AplikasiPertambahan2Angka extends javax.swing.JFrame {
 
         jLabel1.setText("Angka Pertama");
 
+        txtAngkaPertama.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAngkaPertamaKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -72,6 +79,12 @@ public class AplikasiPertambahan2Angka extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
         jLabel2.setText("Angka Kedua");
+
+        txtAngkaKedua.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAngkaKeduaKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -224,6 +237,32 @@ public class AplikasiPertambahan2Angka extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btKeluarActionPerformed
+
+    private void txtAngkaPertamaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngkaPertamaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (! ((Character.isDigit(c) ||
+                (c == KeyEvent.VK_BACK_SPACE) ||
+                (c == KeyEvent.VK_DELETE))
+                )){
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null,"masukkan hanya 0-9!");
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAngkaPertamaKeyTyped
+
+    private void txtAngkaKeduaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngkaKeduaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (! ((Character.isDigit(c) ||
+                (c == KeyEvent.VK_BACK_SPACE) ||
+                (c == KeyEvent.VK_DELETE))
+                )){
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null,"masukkan hanya 0-9!");
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAngkaKeduaKeyTyped
 
     /**
      * @param args the command line arguments
